@@ -51,7 +51,7 @@ public class Blackjack {
 			} else if (p1.getHand().isBusted()) {
 				System.out.println("Busted! You went over 21!");
 			} else {
-				System.out.println("Unknown state, play again.");
+				System.out.println("Draw! Neither you or the dealer busted or won.");
 			}
 			System.out.println("Would you like to play again? (Y/N)");
 			playing = scanner.nextLine().toUpperCase().charAt(0) == 'Y';
