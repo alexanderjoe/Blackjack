@@ -11,9 +11,6 @@ import java.util.Scanner;
 public class Blackjack {
 
 	public static void main(String[] args) {
-		final char[] cards = new char[]{'A', '2', '3', '4', '5', '6', '7', '8', '9', 'T', 'J', 'Q', 'K'};
-		final String[] suites = new String[]{"Hearts", "Diamonds", "Spades", "Clubs"};
-		final String[] colors = new String[]{"Red", "Black"};
 		Scanner scanner = new Scanner(System.in);
 		boolean playing = true;
 
@@ -22,7 +19,9 @@ public class Blackjack {
 			Deck deck = new Deck();
 			Player p1 = new Player(deck);
 			Dealer d1 = new Dealer(deck);
-			System.out.println(p1.getHand().toString());
+			System.out.println("Here are the current decks in play:");
+			System.out.println("Player's hand: " + p1.getHand().toString() + " (" + p1.getHand().getValue() + ")");
+			System.out.println("Dealer's hand: " + d1.hiddenHand());
 			playing = false;
 		}
 	}
