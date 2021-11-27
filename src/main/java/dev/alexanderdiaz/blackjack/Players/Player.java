@@ -13,4 +13,8 @@ public class Player {
 	public Hand getHand() {
 		return this.hand;
 	}
+
+	public void hit(Deck deck) {
+		this.hand.addCard(deck);
+	}
 }

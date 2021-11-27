@@ -1,7 +1,5 @@
 package dev.alexanderdiaz.blackjack.Cards;
 
-import java.util.Random;
-
 public class Card {
 	private Face face;
 	private Suit suit;

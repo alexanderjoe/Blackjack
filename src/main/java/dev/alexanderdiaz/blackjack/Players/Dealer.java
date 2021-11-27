@@ -18,4 +18,10 @@ public class Dealer {
 	public String hiddenHand() {
 		return "Deck: [" + this.hand.getCardAt(0).toString() + ", *HIDDEN*]";
 	}
+
+	public void play(Deck deck) {
+		while (this.hand.getValue() <= HOLD_AT) {
+			this.hand.addCard(deck);
+		}
+	}
 }

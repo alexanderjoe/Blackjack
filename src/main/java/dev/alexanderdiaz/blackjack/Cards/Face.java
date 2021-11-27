@@ -79,8 +79,7 @@ public class Face {
 		this.value = value;
 	}
 
-	public String toString()
-	{
+	public String toString() {
 		return getName();
 	}
 }

@@ -1,7 +1,5 @@
 package dev.alexanderdiaz.blackjack.Cards;
 
-import dev.alexanderdiaz.blackjack.Cards.Card;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;

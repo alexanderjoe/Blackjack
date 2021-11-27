@@ -1,7 +1,5 @@
 package dev.alexanderdiaz.blackjack.Cards;
 
-import dev.alexanderdiaz.blackjack.Cards.Card;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -19,7 +17,7 @@ public class Hand {
 	private void buildDefaultHand(Deck deck) {
 		Card c1 = deck.getCard();
 		Card c2 = deck.getCard();
-		if(c1.isAce() || c2.isAce()) {
+		if (c1.isAce() || c2.isAce()) {
 			ace = true;
 		}
 		this.cardList.add(c1);
@@ -37,6 +35,15 @@ public class Hand {
 
 	public void addCard(Card card) {
 		this.cardList.add(card);
+		numberOfCards++;
+	}
+
+	public void addCard(Deck deck) {
+		addCard(deck.getCard());
+	}
+
+	public Card getTopCard() {
+		return getCardAt(numberOfCards - 1);
 	}
 
 	public boolean removeCard(Card card) {
@@ -45,11 +52,11 @@ public class Hand {
 
 	public int getValue() {
 		int value = 0;
-		for(Card card : this.cardList) {
+		for (Card card : this.cardList) {
 			value += card.getValue();
 		}
 
-		if(value > 21 && ace) {
+		if (value > 21 && ace) {
 			value -= 10;
 		}
 
@@ -63,7 +70,7 @@ public class Hand {
 	public boolean isBusted() {
 		int value = getValue();
 
-		return ! (value < 21 && value > 0);
+		return value > 21;
 	}
 
 	public boolean isWinner() {
