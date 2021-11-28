@@ -46,6 +46,8 @@ public class Blackjack {
 				System.out.println("Draw! Both the dealer and you have 21.");
 			} else if (p1.getHand().isWinner()) {
 				System.out.println("Winner! You got exactly 21!");
+			} else if(d1.getHand().isWinner() && !p1.getHand().isWinner()) {
+				System.out.println("Loser! The dealer won.");
 			} else if (d1.getHand().isBusted()) {
 				System.out.println("Winner! The dealer busted!");
 			} else if (p1.getHand().isBusted()) {
