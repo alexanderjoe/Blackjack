@@ -8,7 +8,6 @@ public class Hand {
 
 	final private List<Card> cardList = new ArrayList<Card>();
 	private int numberOfCards = 0;
-	private boolean ace = false;
 
 	public Hand(Deck deck) {
 		buildDefaultHand(deck);
@@ -17,9 +16,6 @@ public class Hand {
 	private void buildDefaultHand(Deck deck) {
 		Card c1 = deck.getCard();
 		Card c2 = deck.getCard();
-		if (c1.isAce() || c2.isAce()) {
-			ace = true;
-		}
 		this.cardList.add(c1);
 		this.cardList.add(c2);
 		numberOfCards = 2;
@@ -52,12 +48,21 @@ public class Hand {
 
 	public int getValue() {
 		int value = 0;
+		boolean ace = false;
+		int numAces = 0;
 		for (Card card : this.cardList) {
 			value += card.getValue();
+			if (card.isAce()) {
+				ace = true;
+				numAces++;
+			}
 		}
 
 		if (value > 21 && ace) {
 			value -= 10;
+			if (numAces > 1 && value > 21) {
+				value -= 10;
+			}
 		}
 
 		return value;
